@@ -1,0 +1,357 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "1034",
+    "jobId" : "jobs/monthly_schedule",
+    "name" : "monthly_schedule",
+    "schedule" : "0 0 0 1/1 * ? *",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "small",
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "type" : "Inherited",
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      }
+    },
+    "availableFabrics" : [ {
+      "id" : "1034",
+      "name" : "dev",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "1394",
+      "name" : "dev-uc",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    } ]
+  },
+  "processes" : {
+    "l4Ca1TxhIUZmb8F2GBhVc$$Whagtwkyj-Tf6MMeKOQU8" : {
+      "id" : "l4Ca1TxhIUZmb8F2GBhVc$$Whagtwkyj-Tf6MMeKOQU8",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "clean_encounters",
+        "slug" : "clean_encounters",
+        "x" : 460,
+        "y" : 440
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "9jJrKSxl3z-dMlOGynt3X$$L5gdd5Cc-H6Auu99D9I9w"
+        } ],
+        "outputs" : [ {
+          "id" : "AanAqRj2EMjTDnljMS7MC$$RDY05e7Wm3BKaNomx-ZFo"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/clean_encounters",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "healthcare_webinar" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "HjK6vO8NnD6jUbG79c9Eq$$4AFu9ZqDoCtVv3L6_NGvS" : {
+      "id" : "HjK6vO8NnD6jUbG79c9Eq$$4AFu9ZqDoCtVv3L6_NGvS",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "monthly_report",
+        "slug" : "monthly_report",
+        "x" : 700,
+        "y" : 300
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "DAWV6RyPY6cjgiW_swRJM$$nAC7ODIHHK_fE7H_GiSZ4"
+        } ],
+        "outputs" : [ {
+          "id" : "vTVbNvKCxqnwK83bYlc4S$$GyP9Cs8iU5MAbff3mYkVP"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/monthly_report",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "healthcare_webinar" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "fxVwj8NQuKbeq4QsIoBdN$$Ny6j6KDTiz4bdr5eiSP34" : {
+      "id" : "fxVwj8NQuKbeq4QsIoBdN$$Ny6j6KDTiz4bdr5eiSP34",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "ingest_patients",
+        "slug" : "ingest_patients",
+        "x" : 260,
+        "y" : 160
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Buclq45damhXWr_zJrY5J$$ysq6v_CGgL4Br5ODGF3kD"
+        } ],
+        "outputs" : [ {
+          "id" : "o7ooaRf2I6mtvaUIM6hV2$$Q2aHFObaARWXMWY8aR6-3"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/ingest_patients",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "healthcare_webinar" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "5kCjzJn0qewQmlI8IrYtK$$RfgCPdA56oeCQq8pJ2O39" : {
+      "id" : "5kCjzJn0qewQmlI8IrYtK$$RfgCPdA56oeCQq8pJ2O39",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "clean_patients",
+        "slug" : "clean_patients",
+        "x" : 460,
+        "y" : 160
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "I76Z0jyRXVn1Rxg2EdGz_$$-kac7tydg9bwkxtYU2oyk"
+        } ],
+        "outputs" : [ {
+          "id" : "3YURfcEU_Us40yNEFryH4$$UWy89Es4eFczkCq87E7df"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/clean_patients",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "healthcare_webinar" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "v6JvEKo1hfPRQK8uwoSTJ$$bib1cneEgf2TD2dTIbXTy" : {
+      "id" : "v6JvEKo1hfPRQK8uwoSTJ$$bib1cneEgf2TD2dTIbXTy",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "ingest_conditions",
+        "slug" : "ingest_conditions",
+        "x" : 260,
+        "y" : 300
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "BpaI9lZhIV5WPgp7LAVK3$$kdfHpQVr51shWhksZ4Isw"
+        } ],
+        "outputs" : [ {
+          "id" : "uqIejs2KRvhnrz_uvOGau$$bCsqRuOu9qy4Q0XZFHXB0"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/ingest_conditions",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "healthcare_webinar" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "Y95L9rXWiVMre0P9fJJmE$$hW9fs1_cj6c-0WOHXOuqu" : {
+      "id" : "Y95L9rXWiVMre0P9fJJmE$$hW9fs1_cj6c-0WOHXOuqu",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "ingest_encounters",
+        "slug" : "ingest_encounters",
+        "x" : 260,
+        "y" : 440
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "3eaahbvLM4DpMO_SAEkMA$$qALyDIjLcRSEjB8EGE2ly"
+        } ],
+        "outputs" : [ {
+          "id" : "0kAjAxg27BPx0VxmYZ-Hs$$1d0srn4_SghovoPgm2eZD"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/ingest_encounters",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "healthcare_webinar" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "yzrlGCzWVkRrFOsfosHeZ$$iph2ZeSE84UVIE4FwJOEN" : {
+      "id" : "yzrlGCzWVkRrFOsfosHeZ$$iph2ZeSE84UVIE4FwJOEN",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "clean_conditions",
+        "slug" : "clean_conditions",
+        "x" : 460,
+        "y" : 300
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "IIokpRNdJ8de2clv1E9oS$$zWzBIuPRuAdi1EJa-kMV-"
+        } ],
+        "outputs" : [ {
+          "id" : "tJXkuSCGPtHsGiVkDgdjQ$$u_i5-bdFL88fQJ8n90a0v"
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/clean_conditions",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "healthcare_webinar" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "XKV2YlvRdalYa7kdMvDOi",
+    "source" : "fxVwj8NQuKbeq4QsIoBdN$$Ny6j6KDTiz4bdr5eiSP34",
+    "target" : "5kCjzJn0qewQmlI8IrYtK$$RfgCPdA56oeCQq8pJ2O39",
+    "sourcePort" : "o7ooaRf2I6mtvaUIM6hV2$$Q2aHFObaARWXMWY8aR6-3",
+    "targetPort" : "I76Z0jyRXVn1Rxg2EdGz_$$-kac7tydg9bwkxtYU2oyk"
+  }, {
+    "id" : "QUc4GYV2x-Nl-B9XtjuoA",
+    "source" : "v6JvEKo1hfPRQK8uwoSTJ$$bib1cneEgf2TD2dTIbXTy",
+    "target" : "yzrlGCzWVkRrFOsfosHeZ$$iph2ZeSE84UVIE4FwJOEN",
+    "sourcePort" : "uqIejs2KRvhnrz_uvOGau$$bCsqRuOu9qy4Q0XZFHXB0",
+    "targetPort" : "IIokpRNdJ8de2clv1E9oS$$zWzBIuPRuAdi1EJa-kMV-"
+  }, {
+    "id" : "V0Jnfmg0PoTRnZy1ltwc8",
+    "source" : "Y95L9rXWiVMre0P9fJJmE$$hW9fs1_cj6c-0WOHXOuqu",
+    "target" : "l4Ca1TxhIUZmb8F2GBhVc$$Whagtwkyj-Tf6MMeKOQU8",
+    "sourcePort" : "0kAjAxg27BPx0VxmYZ-Hs$$1d0srn4_SghovoPgm2eZD",
+    "targetPort" : "9jJrKSxl3z-dMlOGynt3X$$L5gdd5Cc-H6Auu99D9I9w"
+  }, {
+    "id" : "7sk4lb5Gna2yBExhKQKtG",
+    "source" : "yzrlGCzWVkRrFOsfosHeZ$$iph2ZeSE84UVIE4FwJOEN",
+    "target" : "HjK6vO8NnD6jUbG79c9Eq$$4AFu9ZqDoCtVv3L6_NGvS",
+    "sourcePort" : "tJXkuSCGPtHsGiVkDgdjQ$$u_i5-bdFL88fQJ8n90a0v",
+    "targetPort" : "DAWV6RyPY6cjgiW_swRJM$$nAC7ODIHHK_fE7H_GiSZ4"
+  }, {
+    "id" : "199I20EwFV2UjMh7dAbxw",
+    "source" : "l4Ca1TxhIUZmb8F2GBhVc$$Whagtwkyj-Tf6MMeKOQU8",
+    "target" : "HjK6vO8NnD6jUbG79c9Eq$$4AFu9ZqDoCtVv3L6_NGvS",
+    "sourcePort" : "AanAqRj2EMjTDnljMS7MC$$RDY05e7Wm3BKaNomx-ZFo",
+    "targetPort" : "DAWV6RyPY6cjgiW_swRJM$$nAC7ODIHHK_fE7H_GiSZ4"
+  } ]
+}

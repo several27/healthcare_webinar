@@ -82,12 +82,27 @@ pipelines:
     mode: batch
     language: python
     createdAt: '2023-03-09 15:34:11'
-    modifiedAt: '2023-03-09 15:36:52'
+    modifiedAt: '2023-03-09 17:09:14'
     datasets:
       inputs:
       - datasets/bronze_encounters
       outputs:
       - datasets/silver_encounters
+    dependencies: {}
+  pipelines/monthly_report:
+    name: monthly_report
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    mode: batch
+    language: python
+    createdAt: '2023-03-09 17:45:31'
+    modifiedAt: '2023-03-09 17:52:22'
+    datasets:
+      inputs:
+      - datasets/patients_silver
+      - datasets/silver_encounters
+      outputs:
+      - datasets/gold_report
     dependencies: {}
 datasets:
   datasets/patients:
@@ -285,8 +300,69 @@ datasets:
         author: maciej+webinar-2022@prophecy.io
         createdAt: '2023-03-09 15:35:58'
         modifiedAt: '2023-03-09 15:35:58'
+  datasets/patients_silver:
+    name: patients_silver
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 17:47:16'
+    modifiedAt: '2023-03-09 17:47:16'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: Database
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 17:47:16'
+        modifiedAt: '2023-03-09 17:47:16'
+  datasets/gold_report:
+    name: gold_report
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 17:52:21'
+    modifiedAt: '2023-03-09 17:52:21'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: Database
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 17:52:21'
+        modifiedAt: '2023-03-09 17:52:21'
 templates: {}
-jobs: {}
+jobs:
+  jobs/monthly_schedule:
+    name: monthly_schedule
+    description: ''
+    fabricUID: 1034
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: 0 0 0 1/1 * ? *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/ingest_conditions
+    - pipelines/clean_conditions
+    - pipelines/clean_encounters
+    - pipelines/clean_patients
+    - pipelines/ingest_patients
+    - pipelines/monthly_report
+    - pipelines/ingest_encounters
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2023-03-09 17:10:51'
+    modifiedAt: '2023-03-09 17:52:57'
+    author: maciej+webinar-2022@prophecy.io
 libraries: []
 subgraphs:
   subgraphs/cleanup_visits:
@@ -296,7 +372,7 @@ subgraphs:
     language: python
     mode: batch
     createdAt: '2023-03-09 15:53:52'
-    modifiedAt: '2023-03-09 15:53:53'
+    modifiedAt: '2023-03-09 17:51:32'
 sqlModels: {}
 sqlPipeline: null
 dependencies: []

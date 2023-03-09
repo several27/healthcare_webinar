@@ -69,7 +69,7 @@
       "metadata" : {
         "label" : "bronze_encounters",
         "slug" : "bronze_encounters",
-        "x" : 340,
+        "x" : 320,
         "y" : 360,
         "phase" : 0,
         "cache" : false,
