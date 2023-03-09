@@ -1,6 +1,6 @@
 name: healthcare_webinar
 description: ''
-version: 0.0.1
+version: '0.1'
 author: maciej+webinar-2022@prophecy.io
 language: python
 buildSystem: wheel
