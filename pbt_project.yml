@@ -1,0 +1,91 @@
+name: healthcare_webinar
+description: ''
+version: 0.0.1
+author: maciej+webinar-2022@prophecy.io
+language: python
+buildSystem: wheel
+pipelines:
+  pipelines/covid_analysis:
+    name: covid_analysis
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    mode: batch
+    language: python
+    createdAt: '2023-03-09 01:07:27'
+    modifiedAt: '2023-03-09 02:01:15'
+    datasets:
+      inputs:
+      - datasets/encounters
+      - datasets/patients
+      outputs: []
+    dependencies: {}
+datasets:
+  datasets/patients:
+    name: patients
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 01:20:59'
+    modifiedAt: '2023-03-09 01:20:59'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: File
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 01:20:59'
+        modifiedAt: '2023-03-09 01:20:59'
+  datasets/procedures:
+    name: procedures
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 01:21:55'
+    modifiedAt: '2023-03-09 01:22:18'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: File
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 01:21:55'
+        modifiedAt: '2023-03-09 01:21:55'
+  datasets/encounters:
+    name: encounters
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 01:25:20'
+    modifiedAt: '2023-03-09 01:25:20'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: File
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 01:25:20'
+        modifiedAt: '2023-03-09 01:25:20'
+  datasets/conditions:
+    name: conditions
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 01:35:50'
+    modifiedAt: '2023-03-09 01:35:50'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: File
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 01:35:50'
+        modifiedAt: '2023-03-09 01:35:50'
+templates: {}
+jobs: {}
+libraries: []
+subgraphs: {}
+sqlModels: {}
+sqlPipeline: null
+dependencies: []
+projectDependencies: {}
+pipelineConfigurations: {}
