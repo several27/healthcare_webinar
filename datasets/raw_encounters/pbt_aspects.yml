@@ -1,0 +1,81 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: Id
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: START
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: STOP
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PATIENT
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: PROVIDER
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: ENCOUNTERCLASS
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: CODE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: DESCRIPTION
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: COST
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: REASONCODE
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: REASONDESCRIPTION
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

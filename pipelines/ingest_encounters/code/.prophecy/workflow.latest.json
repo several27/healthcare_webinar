@@ -1,0 +1,115 @@
+{
+  "metainfo" : {
+    "id" : "1",
+    "language" : "python",
+    "fabricId" : "1034",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "ingest_encounters"
+  },
+  "connections" : [ {
+    "id" : "Mr1vnn_PmBzLIyfrk1gd8$$Qp5m6IxwzGfODKTXdHyRr",
+    "source" : "zhoCSJB1fs9PYRLRxeSKM$$qu-LetKvzG-S10dwvD8yZ",
+    "sourcePort" : "tis3Gq6aqJaNVIVV_dkuU$$dqewJ36W1XCbEKLAZASrY",
+    "target" : "UbZ2T4wsTFJZeR5H9p04j$$bSAitXRAbHt-HOAEcJO-X",
+    "targetPort" : "eORJ1mz-0gSkWmYuJfAmS$$BlORKBKnZOe-3sWHsjrGR"
+  } ],
+  "processes" : {
+    "zhoCSJB1fs9PYRLRxeSKM$$qu-LetKvzG-S10dwvD8yZ" : {
+      "id" : "zhoCSJB1fs9PYRLRxeSKM$$qu-LetKvzG-S10dwvD8yZ",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "raw_encounters",
+        "slug" : "raw_encounters",
+        "x" : 200,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "tis3Gq6aqJaNVIVV_dkuU$$dqewJ36W1XCbEKLAZASrY",
+          "slug" : "out",
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/raw_encounters"
+      }
+    },
+    "UbZ2T4wsTFJZeR5H9p04j$$bSAitXRAbHt-HOAEcJO-X" : {
+      "id" : "UbZ2T4wsTFJZeR5H9p04j$$bSAitXRAbHt-HOAEcJO-X",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "bronze_encounters",
+        "slug" : "bronze_encounters",
+        "x" : 420,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "eORJ1mz-0gSkWmYuJfAmS$$BlORKBKnZOe-3sWHsjrGR",
+          "slug" : "Source_0",
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/bronze_encounters"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false
+  }
+}

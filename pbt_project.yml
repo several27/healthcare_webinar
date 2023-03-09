@@ -5,19 +5,89 @@ author: maciej+webinar-2022@prophecy.io
 language: python
 buildSystem: wheel
 pipelines:
-  pipelines/covid_analysis:
-    name: covid_analysis
+  pipelines/ingest_conditions:
+    name: ingest_conditions
     description: ''
     author: maciej+webinar-2022@prophecy.io
     mode: batch
     language: python
-    createdAt: '2023-03-09 01:07:27'
-    modifiedAt: '2023-03-09 02:01:15'
+    createdAt: '2023-03-09 15:23:24'
+    modifiedAt: '2023-03-09 15:25:21'
     datasets:
       inputs:
-      - datasets/encounters
-      - datasets/patients
-      outputs: []
+      - datasets/raw_conditions
+      outputs:
+      - datasets/bronze_conditions
+    dependencies: {}
+  pipelines/ingest_patients:
+    name: ingest_patients
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    mode: batch
+    language: python
+    createdAt: '2023-03-09 15:25:57'
+    modifiedAt: '2023-03-09 15:27:51'
+    datasets:
+      inputs:
+      - datasets/raw_patients
+      outputs:
+      - datasets/bronze_patients
+    dependencies: {}
+  pipelines/ingest_encounters:
+    name: ingest_encounters
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    mode: batch
+    language: python
+    createdAt: '2023-03-09 15:28:42'
+    modifiedAt: '2023-03-09 15:29:57'
+    datasets:
+      inputs:
+      - datasets/raw_encounters
+      outputs:
+      - datasets/bronze_encounters
+    dependencies: {}
+  pipelines/clean_conditions:
+    name: clean_conditions
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    mode: batch
+    language: python
+    createdAt: '2023-03-09 15:30:34'
+    modifiedAt: '2023-03-09 15:31:58'
+    datasets:
+      inputs:
+      - datasets/bronze_conditions
+      outputs:
+      - datasets/silver_conditions
+    dependencies: {}
+  pipelines/clean_patients:
+    name: clean_patients
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    mode: batch
+    language: python
+    createdAt: '2023-03-09 15:32:30'
+    modifiedAt: '2023-03-09 15:33:36'
+    datasets:
+      inputs:
+      - datasets/bronze_patients
+      outputs:
+      - datasets/silver_patients
+    dependencies: {}
+  pipelines/clean_encounters:
+    name: clean_encounters
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    mode: batch
+    language: python
+    createdAt: '2023-03-09 15:34:11'
+    modifiedAt: '2023-03-09 15:36:52'
+    datasets:
+      inputs:
+      - datasets/bronze_encounters
+      outputs:
+      - datasets/silver_encounters
     dependencies: {}
 datasets:
   datasets/patients:
@@ -80,10 +150,153 @@ datasets:
         author: maciej+webinar-2022@prophecy.io
         createdAt: '2023-03-09 01:35:50'
         modifiedAt: '2023-03-09 01:35:50'
+  datasets/raw_conditions:
+    name: raw_conditions
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:24:28'
+    modifiedAt: '2023-03-09 15:24:28'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: File
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:24:28'
+        modifiedAt: '2023-03-09 15:24:28'
+  datasets/bronze_conditions:
+    name: bronze_conditions
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:25:20'
+    modifiedAt: '2023-03-09 15:25:20'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: Database
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:25:20'
+        modifiedAt: '2023-03-09 15:25:20'
+  datasets/bronze_patients:
+    name: bronze_patients
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:27:00'
+    modifiedAt: '2023-03-09 15:27:44'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: File
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:27:00'
+        modifiedAt: '2023-03-09 15:27:00'
+  datasets/raw_patients:
+    name: raw_patients
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:27:43'
+    modifiedAt: '2023-03-09 15:27:43'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: File
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:27:43'
+        modifiedAt: '2023-03-09 15:27:43'
+  datasets/raw_encounters:
+    name: raw_encounters
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:29:27'
+    modifiedAt: '2023-03-09 15:29:27'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: File
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:29:27'
+        modifiedAt: '2023-03-09 15:29:27'
+  datasets/bronze_encounters:
+    name: bronze_encounters
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:29:56'
+    modifiedAt: '2023-03-09 15:29:56'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: Database
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:29:56'
+        modifiedAt: '2023-03-09 15:29:56'
+  datasets/silver_conditions:
+    name: silver_conditions
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:31:54'
+    modifiedAt: '2023-03-09 15:31:54'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: Database
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:31:54'
+        modifiedAt: '2023-03-09 15:31:54'
+  datasets/silver_patients:
+    name: silver_patients
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:33:36'
+    modifiedAt: '2023-03-09 15:33:36'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: Database
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:33:36'
+        modifiedAt: '2023-03-09 15:33:36'
+  datasets/silver_encounters:
+    name: silver_encounters
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    createdAt: '2023-03-09 15:35:58'
+    modifiedAt: '2023-03-09 15:36:52'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 1034
+        datasetType: Database
+        description: ''
+        author: maciej+webinar-2022@prophecy.io
+        createdAt: '2023-03-09 15:35:58'
+        modifiedAt: '2023-03-09 15:35:58'
 templates: {}
 jobs: {}
 libraries: []
-subgraphs: {}
+subgraphs:
+  subgraphs/cleanup_visits:
+    name: cleanup_visits
+    description: ''
+    author: maciej+webinar-2022@prophecy.io
+    language: python
+    mode: batch
+    createdAt: '2023-03-09 15:53:52'
+    modifiedAt: '2023-03-09 15:53:53'
 sqlModels: {}
 sqlPipeline: null
 dependencies: []

@@ -1,0 +1,115 @@
+{
+  "metainfo" : {
+    "id" : "1",
+    "language" : "python",
+    "fabricId" : "1034",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "ingest_patients"
+  },
+  "connections" : [ {
+    "id" : "Qa3l-14btBvgJaDJtvHpC$$icfyWzl784cVxtf2mnlpV",
+    "source" : "mwwP0CSHARlWsjZmmKfZb$$161iYTllJciROXGtp8wiU",
+    "sourcePort" : "socYtJ6aLkuTf0wx72Vs4$$let8xMc4vaY_5VoqRSPlO",
+    "target" : "U3XoBqxo_B5xoDdoV5yU0$$B4TKOjALWXAXKo0PU_nKj",
+    "targetPort" : "2TNCM73cDJfQGtd_d4ynN$$C2xImSFOnBG0De7t3VX5G"
+  } ],
+  "processes" : {
+    "mwwP0CSHARlWsjZmmKfZb$$161iYTllJciROXGtp8wiU" : {
+      "id" : "mwwP0CSHARlWsjZmmKfZb$$161iYTllJciROXGtp8wiU",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "raw_patients",
+        "slug" : "raw_patients",
+        "x" : 180,
+        "y" : 200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "socYtJ6aLkuTf0wx72Vs4$$let8xMc4vaY_5VoqRSPlO",
+          "slug" : "out",
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/raw_patients"
+      }
+    },
+    "U3XoBqxo_B5xoDdoV5yU0$$B4TKOjALWXAXKo0PU_nKj" : {
+      "id" : "U3XoBqxo_B5xoDdoV5yU0$$B4TKOjALWXAXKo0PU_nKj",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "bronze_patients_1",
+        "slug" : "bronze_patients_1",
+        "x" : 400,
+        "y" : 200,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "2TNCM73cDJfQGtd_d4ynN$$C2xImSFOnBG0De7t3VX5G",
+          "slug" : "in0",
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/bronze_patients"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false
+  }
+}

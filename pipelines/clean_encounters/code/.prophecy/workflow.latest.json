@@ -1,0 +1,281 @@
+{
+  "metainfo" : {
+    "id" : "1",
+    "language" : "python",
+    "fabricId" : "1034",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "clean_encounters"
+  },
+  "connections" : [ {
+    "id" : "R_-cXYAEHsGpilORUPjRz$$gSFjICCyf1XtEjj8KzvEy",
+    "source" : "nudrNGq3qh6U8gnoCdD2F$$GHrBPIuugWCDvQ7DCdmGm",
+    "sourcePort" : "S5TFVJYpBsHyyCkgfrf7P$$CjKSlDV0PDQvSqD6rox1x",
+    "target" : "kViUl5ViNuvEVrOo9jbFg$$ZndqrUcOVR9DV30E53jXv",
+    "targetPort" : "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO"
+  }, {
+    "id" : "7h2eVEsUQFWEPl8rfhxuJ$$XbfHgrRjqQHkrvp4HykvG",
+    "source" : "kViUl5ViNuvEVrOo9jbFg$$ZndqrUcOVR9DV30E53jXv",
+    "sourcePort" : "ZHsVRY48Vafn5wA0JKzGC$$3O5uJkKdjjGyXz4ap8v0z",
+    "target" : "7fas7APbN8fBNFzSDwp_6$$jAaQY3cy9wuWRjJlMtAyS",
+    "targetPort" : "SBfY5N44SU2A9yaKvxNCp$$35PjNrCa6QdzYa0-0W_gj"
+  }, {
+    "id" : "Fmpal8YlU3nCNJHeeNqUj$$uuu30dn57vCUH62VovpfE",
+    "source" : "7fas7APbN8fBNFzSDwp_6$$jAaQY3cy9wuWRjJlMtAyS",
+    "sourcePort" : "Ha2DUV23FfNYGV0L3SRZ4$$BHUlsg5Q0S9wduiRTmATH",
+    "target" : "I_n375YUBbIRrM5qfOXaG$$qMeug_qGG86plIAd-Drba",
+    "targetPort" : "1I98_4dIlGUB92sykSqXD$$ldgivAr3GvHbR3M7UVFAG"
+  } ],
+  "processes" : {
+    "nudrNGq3qh6U8gnoCdD2F$$GHrBPIuugWCDvQ7DCdmGm" : {
+      "id" : "nudrNGq3qh6U8gnoCdD2F$$GHrBPIuugWCDvQ7DCdmGm",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "bronze_encounters",
+        "slug" : "bronze_encounters",
+        "x" : 340,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "S5TFVJYpBsHyyCkgfrf7P$$CjKSlDV0PDQvSqD6rox1x",
+          "slug" : "out",
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/bronze_encounters"
+      }
+    },
+    "kViUl5ViNuvEVrOo9jbFg$$ZndqrUcOVR9DV30E53jXv" : {
+      "id" : "kViUl5ViNuvEVrOo9jbFg$$ZndqrUcOVR9DV30E53jXv",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "with_length",
+        "slug" : "with_length",
+        "x" : 540,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO",
+          "slug" : "bronze_encounters",
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "ZHsVRY48Vafn5wA0JKzGC$$3O5uJkKdjjGyXz4ap8v0z",
+          "slug" : "out",
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "importLanguage" : "python",
+        "expressions" : [ {
+          "target" : "Id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "Id"
+          },
+          "description" : ""
+        }, {
+          "target" : "START",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "START"
+          },
+          "description" : ""
+        }, {
+          "target" : "STOP",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "STOP"
+          },
+          "description" : ""
+        }, {
+          "target" : "LENGTH_HOURS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "(CAST(to_timestamp(STOP) AS LONG) - CAST(to_timestamp(START) AS LONG)) / 3600"
+          },
+          "description" : ""
+        }, {
+          "target" : "PATIENT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "PATIENT"
+          },
+          "description" : ""
+        }, {
+          "target" : "PROVIDER",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "PROVIDER"
+          },
+          "description" : ""
+        }, {
+          "target" : "ENCOUNTERCLASS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ENCOUNTERCLASS"
+          },
+          "description" : ""
+        }, {
+          "target" : "CODE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CODE"
+          },
+          "description" : ""
+        }, {
+          "target" : "DESCRIPTION",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "DESCRIPTION"
+          },
+          "description" : ""
+        }, {
+          "target" : "COST",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "COST"
+          },
+          "description" : ""
+        }, {
+          "target" : "REASONCODE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "REASONCODE"
+          },
+          "description" : ""
+        }, {
+          "target" : "REASONDESCRIPTION",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "REASONDESCRIPTION"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##START", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##REASONCODE", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##REASONDESCRIPTION", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##ENCOUNTERCLASS", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##Id", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##CODE", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##COST", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##DESCRIPTION", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##STOP", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##PROVIDER", "c0tXWvx5aUuQa8_2W41u0$$X0ccURWgQ9-mmzI8g52IO##PATIENT" ]
+      }
+    },
+    "7fas7APbN8fBNFzSDwp_6$$jAaQY3cy9wuWRjJlMtAyS" : {
+      "id" : "7fas7APbN8fBNFzSDwp_6$$jAaQY3cy9wuWRjJlMtAyS",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "valid_reasons",
+        "slug" : "valid_reasons",
+        "x" : 720,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "SBfY5N44SU2A9yaKvxNCp$$35PjNrCa6QdzYa0-0W_gj",
+          "slug" : "with_length",
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Ha2DUV23FfNYGV0L3SRZ4$$BHUlsg5Q0S9wduiRTmATH",
+          "slug" : "out",
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "REASONDESCRIPTION IS NOT NULL"
+        }
+      }
+    },
+    "I_n375YUBbIRrM5qfOXaG$$qMeug_qGG86plIAd-Drba" : {
+      "id" : "I_n375YUBbIRrM5qfOXaG$$qMeug_qGG86plIAd-Drba",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "silver_encounters",
+        "slug" : "silver_encounters",
+        "x" : 940,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "1I98_4dIlGUB92sykSqXD$$ldgivAr3GvHbR3M7UVFAG",
+          "slug" : "valid_reasons",
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/silver_encounters"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false
+  }
+}

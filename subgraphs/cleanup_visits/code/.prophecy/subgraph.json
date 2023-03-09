@@ -1,0 +1,92 @@
+{
+  "id" : "Mqkop0qvEAAv557_pEDXV",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false
+  },
+  "ports" : {
+    "inputs" : [ {
+      "id" : "6RPwthY5UlrDjSVsUA1SO",
+      "slug" : "in0",
+      "isStreaming" : false
+    } ],
+    "outputs" : [ {
+      "id" : "djae7ZvC4wxy8HUPcgA1V",
+      "slug" : "out0",
+      "isStreaming" : false
+    } ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false
+  },
+  "properties" : {
+    "packageName" : "utilities"
+  },
+  "connections" : [ {
+    "id" : "mYiomCHUiZEqXKV_gdma3",
+    "source" : "Mqkop0qvEAAv557_pEDXV",
+    "sourcePort" : "6RPwthY5UlrDjSVsUA1SO",
+    "target" : "m-8Lx0Y_0VTD01-wYUSgP",
+    "targetPort" : "0lMZT-2PkIirPtRz8muuJ"
+  }, {
+    "id" : "QI3AfXXGJsHSxx6bBjC0J",
+    "source" : "m-8Lx0Y_0VTD01-wYUSgP",
+    "sourcePort" : "yOA5CLQGC4GAF-W-ErxR1",
+    "target" : "Mqkop0qvEAAv557_pEDXV",
+    "targetPort" : "djae7ZvC4wxy8HUPcgA1V"
+  } ],
+  "processes" : {
+    "m-8Lx0Y_0VTD01-wYUSgP" : {
+      "id" : "m-8Lx0Y_0VTD01-wYUSgP",
+      "component" : "SchemaTransform",
+      "metadata" : {
+        "label" : "cleanup",
+        "slug" : "cleanup",
+        "x" : 600,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "0lMZT-2PkIirPtRz8muuJ",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "yOA5CLQGC4GAF-W-ErxR1",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "0lMZT-2PkIirPtRz8muuJ$$b4KLuBdjhmC_ZAkrym34k##average_length_hours" ],
+        "transformations" : [ {
+          "kind" : "AddReplaceColumn",
+          "AddReplaceColumn" : {
+            "sourceColumn" : "average_length_hours",
+            "expression" : {
+              "format" : "sql",
+              "expression" : "concat(format_string('%.1f',average_length_hours), ' minutes')"
+            }
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          }
+        } ]
+      }
+    }
+  }
+}
